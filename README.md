@@ -1,12 +1,12 @@
 ![header](https://capsule-render.vercel.app/api?type=transparent&color=gradient&text=EAGU%20WebSite&fontColor=FFFFFF)
 
-www.eagu.kro.kr
 
 # University Programing Club
 
+www.eagu.kro.kr
 
+## Web site dev lang & tool
 
-# Web site dev lang & tool
 ![https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
 ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
