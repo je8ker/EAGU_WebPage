@@ -10,7 +10,7 @@ https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&log
 https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
 https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
 
-ttps://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
+https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
 https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white
 https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 
