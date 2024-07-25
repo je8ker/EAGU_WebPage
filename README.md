@@ -1,9 +1,17 @@
 ![header](https://capsule-render.vercel.app/api?type=transparent&color=gradient&text=EAGU%20WebSite&fontColor=FFFFFF)
 
 
+
+
+
+
 # University Programing Club
 
 www.eagu.kro.kr
+
+
+
+
 
 ## Web site dev lang & tool
 
