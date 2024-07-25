@@ -1,7 +1,8 @@
 ![header](https://capsule-render.vercel.app/api?type=soft&color=auto&fontColor=d6ace6&height=300&section=header&text=EAGU&fontSize=90&animation=blink)
-
-
 # EAGU University Programing Club
+
+
+
 ![https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white
 ](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
