@@ -1,7 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?type=transparent&color=gradient&text=EAGU&fontColor=FFFFFF)
 
 
-# EAGU University Programing Club
+# University Programing Club
 
 
 
