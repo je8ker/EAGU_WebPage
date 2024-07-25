@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=transparent&color=timeAuto&text=EAGU&fontColor=white)
+![header](https://capsule-render.vercel.app/api?type=transparent&color=gradient&text=EAGU&fontColor=000000)
 
 
 # EAGU University Programing Club
