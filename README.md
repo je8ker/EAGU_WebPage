@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=transparent&color=gradient&text=%20EAGU%20fontColor=FFFFFF&textBg=true)
+![header](https://capsule-render.vercel.app/api?type=transparent&color=gradient&text=%20EAGU%20&fontColor=FFFFFF&textBg=true)
 
 
 
