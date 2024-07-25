@@ -19,16 +19,24 @@
       location="right"
       temporary
     >
-      <v-list
-        :items="items"
-      ></v-list>
+      <v-list>
+        <v-list-item
+          v-for="item in items"
+          :key="item.value"
+          @click="movepage(item.path)"
+        >
+        <v-list-item-content>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
   </app>
 </template>
 
 <script>
 import SvgIcon from '@/assets/eagu_logo.svg';
-
+import router from "@/router";
 export default {
   components: {
     SvgIcon
@@ -38,45 +46,16 @@ export default {
       drawer: false,
       group: null,
       items: [
-        {
-          title: 'about',
-          value: 'about',
-        },
-        {
-          title: 'Members',
-          value: 'Members',
-        },
-        {
-          title: 'Events',
-          value: 'Events',
-        },
-        {
-          title: 'Resources',
-          value: 'Resources',
-        },
-        {
-          title: 'Blog',
-          value: 'Blog',
-        },
-        {
-          title: 'Gallery',
-          value: 'Gallery',
-        },
-        {
-          title: 'Join Us',
-          value: 'Join Us',
-        },
-        {
-          title: 'Contact',
-          value: 'Contact',
-        }, {
-          title: 'FAQ',
-          value: 'FAQ',
-        },
-        {
-          title: 'Forum',
-          value: 'Forum',
-        },
+        { title: 'about', path: '/about' },
+        { title: 'Members', path: '/members' },
+        { title: 'Events', path: '/events' },
+        { title: 'Resources', path: '/resources' },
+        { title: 'Blog', path: '/blog' },
+        { title: 'Gallery', path: '/gallery' },
+        { title: 'Join Us', path: '/join-us' },
+        { title: 'Contact', path: '/contact' },
+        { title: 'FAQ', path: '/faq' },
+        { title: 'Forum', path: '/forum' }
       ],
       initialScrollPosition: 0,
       scrollThreshold: 500, // 스크롤 임계값 (SVG 색상이 변경되는 지점)
@@ -110,7 +89,10 @@ export default {
         // 기본적으로 하얀색을 사용
         this.svgColor = 'white';
       }
-    }
+    },
+    movepage(path) {
+      router.push(path);
+    },
   }
 };
 </script>

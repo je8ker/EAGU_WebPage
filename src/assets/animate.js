@@ -8,10 +8,11 @@ export function logoAnimation(element) {
     strokeDashoffset: [ anime.setDashoffset, 0 ],
     easing: 'easeInOutCirc',
     duration: 1000,
-    delay: anime.stagger(250),
+    delay: anime.stagger(500),
     direction: 'alternate',
-    loop: 3
+    loop: true
   });
+}
   // anime({
   //   targets: element,
   //   strokeDashoffset: [anime.setDashoffset, 0],
@@ -21,4 +22,3 @@ export function logoAnimation(element) {
   //     return i * 250;
   //   }
   // });
-}

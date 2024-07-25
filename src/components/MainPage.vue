@@ -1,8 +1,5 @@
 <template>
   <div class="container" :style="{ backgroundColor: containerBgColor }">
-    <div class="animesvg">
-      <svg_anime/>
-    </div>
     <h1
       v-for="(section, index) in sections"
       :key="index"
@@ -20,7 +17,6 @@
 
 <script setup>
 import {ref, onMounted, onBeforeUnmount} from 'vue';
-import Svg_anime from "@/components/svg_anime.vue";
 
 const sections = ref([
   /*소개*/
@@ -131,9 +127,5 @@ h1 {
   background-color: currentColor;
   font-size: 12px;
   color: #2c3e50;
-}
-.animesvg{
-  background-color: black;
-  height: 50vh;
 }
 </style>

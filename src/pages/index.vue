@@ -1,8 +1,7 @@
 <template>
-<Mainpage/>
+<svg_anime/>
 </template>
 
 <script setup>
-  //
-import Mainpage from "@/components/MainPage.vue";
+  import Svg_anime from "@/components/svg_anime.vue";
 </script>
