@@ -1,5 +1,8 @@
 <template>
   <div class="container" :style="{ backgroundColor: containerBgColor }">
+    <div class="animesvg">
+      <svg_anime/>
+    </div>
     <h1
       v-for="(section, index) in sections"
       :key="index"
@@ -14,8 +17,10 @@
   </div>
 </template>
 
+
 <script setup>
 import {ref, onMounted, onBeforeUnmount} from 'vue';
+import Svg_anime from "@/components/svg_anime.vue";
 
 const sections = ref([
   /*소개*/
@@ -24,9 +29,9 @@ const sections = ref([
   {title: ['코딩에 열정을 가진 ', '학생들의 커뮤니티로 ', '서로의 지식과 경험을', '공유합니다.'], scale: 1, bgColor: 'black'},
   {title: ['실제 프로젝트 개발과 ', '최신 기술 학습을 통해 ', '실력을 향상시키는 것을', '목표로 합니다.'], scale: 1, bgColor: 'black'},
   /*소개2*/
-  {title: ['실제 프로젝트 참여를','통한 실전 능력 향상'], scale: 1, bgColor: 'black'},
-  {title: ['비슷한 관심사를 ','가진 동료들과의 교류'], scale: 1, bgColor: 'black'},
-  {title: ['선배 개발자들로부터의','조언과 지도'], scale: 1, bgColor: 'black'},
+  {title: ['실제 프로젝트 참여를', '통한 실전 능력 향상'], scale: 1, bgColor: 'black'},
+  {title: ['비슷한 관심사를 ', '가진 동료들과의 교류'], scale: 1, bgColor: 'black'},
+  {title: ['선배 개발자들로부터의', '조언과 지도'], scale: 1, bgColor: 'black'},
   {title: ['최신 프로그래밍 트렌드 학습 ', '새로운 기술 습득'], scale: 1, bgColor: 'black'},
   /*소개3*/
   {title: ['주요 활동'], scale: 1, bgColor: 'black'},
@@ -36,44 +41,47 @@ const sections = ref([
   {title: ['기술 블로그 운영'], scale: 1, bgColor: 'black'},
 ]);
 
-const containerBgColor = ref('black'); // 초기 배경 색상 설정
 
-const handleScroll = () => {
-  const scrollPosition = window.scrollY;
-  const windowHeight = window.innerHeight;
 
-  let newBgColor = 'black'; // 기본 색상
+  const containerBgColor = ref('black'); // 초기 배경 색상 설정
 
-  sections.value.forEach((section, index) => {
-    const sectionTop = index * windowHeight;
-    const sectionBottom = sectionTop + windowHeight;
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
 
-    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-      const scrollFraction = (scrollPosition - sectionTop) / windowHeight;
-      const scaleValue = 1 - scrollFraction / 2;
-      sections.value[index] = {...section, scale: Math.max(scaleValue, 0.5)};
+    let newBgColor = 'black'; // 기본 색상
 
-      // 현재 섹션의 배경색을 컨테이너 배경색으로 설정
-      newBgColor = section.bgColor;
-    } else {
-      sections.value[index] = {...section, scale: 1};
-    }
+    sections.value.forEach((section, index) => {
+      const sectionTop = index * windowHeight;
+      const sectionBottom = sectionTop + windowHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        const scrollFraction = (scrollPosition - sectionTop) / windowHeight;
+        const scaleValue = 1 - scrollFraction / 1.5;
+        sections.value[index] = {...section, scale: Math.max(scaleValue, 0.5)};
+
+        // 현재 섹션의 배경색을 컨테이너 배경색으로 설정
+        newBgColor = section.bgColor;
+      } else {
+        sections.value[index] = {...section, scale: 1};
+      }
+    });
+
+    containerBgColor.value = newBgColor; // 컨테이너 배경 색상 업데이트
+  };
+
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
   });
 
-  containerBgColor.value = newBgColor; // 컨테이너 배경 색상 업데이트
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  handleScroll(); // 페이지 로드 시 초기 배경 색상 설정
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+  onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll);
+  });
 </script>
 
 <style scoped>
+
 body {
   margin: 0;
 }
@@ -97,5 +105,35 @@ h1 {
   transition: transform 0.1s ease-out;
   text-align: center;
   padding: 0 20px;
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.block {
+  pointer-events: none;
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin: 1px;
+  background-color: currentColor;
+  font-size: 12px;
+  color: #2c3e50;
+}
+.animesvg{
+  background-color: black;
+  height: 50vh;
 }
 </style>
