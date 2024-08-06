@@ -4,7 +4,6 @@
  *
  * Automatic routes for `./src/pages/*.vue`
  */
-
 // Composables
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { routes } from 'vue-router/auto-routes'
@@ -33,4 +32,4 @@ router.isReady().then(() => {
   localStorage.removeItem('vuetify:dynamic-reload')
 })
 
-export default router
+export default router;

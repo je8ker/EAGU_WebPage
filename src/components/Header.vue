@@ -1,42 +1,42 @@
 <template>
-  <app>
-    <v-app-bar height="80" app :style="{ backgroundColor: backgroundColor }">
-      <v-row align="center">
-        <v-col align="start"></v-col>
-        <v-col align="center">
-          <SvgIcon :fill="none" height="64" width="64"/>
-        </v-col>
-        <!--      <v-app-bar-title :style="{ color: titleColor }">EAGU</v-app-bar-title>-->
-        <v-col align="end">
-          <v-btn size="x-large" color="black" icon @click.stop="drawer = !drawer">
-            <v-icon>{{ drawer ? 'mdi-close' : 'mdi-menu' }}</v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      location="right"
-      temporary
-    >
-      <v-list>
-        <v-list-item
-          v-for="item in items"
-          :key="item.value"
-          @click="movepage(item.path)"
-        >
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-  </app>
+  <v-app-bar height="80" app :style="{ backgroundColor: backgroundColor }">
+    <v-row align="center">
+      <v-col :cols="drawer ? 0:1" align="start"></v-col>
+      <v-col align="center" cols="10">
+        <div style="cursor: pointer">
+          <SvgIcon v-if="!drawer" height="64" width="64" @click="movepage('/')"/>
+          <v-app-bar-title v-if="drawer" :style="{ color: titleColor }"><h2>EAGU</h2></v-app-bar-title>
+        </div>
+      </v-col>
+      <v-col align="end" cols="1">
+        <v-btn size="x-large" color="black" icon="" @click.stop="drawer = !drawer">
+          <v-icon>{{ drawer ? 'mdi-close' : 'mdi-menu' }}</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
+  </v-app-bar>
+  <v-navigation-drawer
+    v-model="drawer"
+    location="top"
+    class="w-100 h-100"
+    temporary
+  >
+    <v-list>
+      <v-list-item
+        v-for="item in items"
+        :key="item.title"
+        @click="movepage(item.path)"
+      >
+        <v-list-item-title class="font-weight-bold">{{ item.title }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script>
 import SvgIcon from '@/assets/eagu_logo.svg';
 import router from "@/router";
+
 export default {
   components: {
     SvgIcon
@@ -46,16 +46,14 @@ export default {
       drawer: false,
       group: null,
       items: [
-        { title: 'about', path: '/about' },
-        { title: 'Members', path: '/members' },
-        { title: 'Events', path: '/events' },
-        { title: 'Resources', path: '/resources' },
-        { title: 'Blog', path: '/blog' },
-        { title: 'Gallery', path: '/gallery' },
-        { title: 'Join Us', path: '/join-us' },
-        { title: 'Contact', path: '/contact' },
-        { title: 'FAQ', path: '/faq' },
-        { title: 'Forum', path: '/forum' }
+        {title: 'About', path: '/about'},
+        {title: 'Activities', path: '/activities'},
+        {title: 'Benefits', path: '/benefits'},
+        {title: 'Members', path: '/members'},
+        {title: 'Join Us', path: '/join-us'},
+        {title: 'Gallery', path: '/gallery'},
+        {title: 'Community', path: '/community'},
+        {title: 'Notice', path: '/notice'},
       ],
       initialScrollPosition: 0,
       scrollThreshold: 500, // 스크롤 임계값 (SVG 색상이 변경되는 지점)
@@ -98,18 +96,9 @@ export default {
 </script>
 
 <style>
-.v-app-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* 다른 콘텐츠 위에 위치하도록 설정 */
-}
 
-v-navigation-drawer {
-  position: fixed;
+.v-navigation-drawer {
+  z-index: 1100;
   top: 0;
-  z-index: 100;
-  transition: transform 0.5s ease;
 }
 </style>

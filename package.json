@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/font": "7.4.47",
     "animejs": "^3.2.2",
+    "axios": "^1.7.2",
     "core-js": "^3.37.1",
     "gh-pages": "^6.1.1",
     "roboto-fontface": "*",
