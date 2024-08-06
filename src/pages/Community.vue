@@ -28,11 +28,11 @@ export default {
     return {
       posts: [],
       headers: [
-        {title: 'ID', key: 'id'},
+        // {title: 'ID', key: 'id'},
         {title: 'Title', key: 'title'},
-        {title: 'Name', key: 'name'},
         {title: 'Content', key: 'content'},
-        {title: 'Date', key: 'created_at'}
+        {title: 'Name', key: 'name'},
+        // {title: 'Date', key: 'created_at'}
       ],
       loading: false,
       error: null

@@ -1,4 +1,6 @@
 <template>
+  <h2 style="padding-top: 10px" class="text-center text-h2 font-weight-black text-light-blue
+">회원소개</h2>
   <v-container>
     <v-row>
       <v-col

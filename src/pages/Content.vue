@@ -14,7 +14,6 @@
         <v-text-field
           v-model="title"
           :readonly="loading"
-          :rules="[required]"
           class="mb-2"
           label="제목"
           clearable
@@ -22,7 +21,6 @@
         <v-text-field
           v-model="name"
           :readonly="loading"
-          :rules="[required]"
           class="mb-2"
           label="이름"
           clearable
@@ -66,6 +64,7 @@
             color="success"
             type="submit"
             variant="elevated"
+            @click="resetForm"
           >
             Submit
           </v-btn>
@@ -88,28 +87,9 @@ export default {
     formHasErrors: false,
   }),
 
-  watch: {
-    title() {
-      this.errorMessages = ''
-    },
-  },
 
   methods: {
-    contentCheck() {
-      this.errorMessages = this.content && !this.title
-        ? `Hey! I'm required`
-        : ''
 
-      return true
-    },
-    resetForm() {
-      this.errorMessages = []
-      this.formHasErrors = false
-
-      Object.keys(this.form).forEach(f => {
-        this.$refs[f].reset()
-      })
-    },
     async onSubmit() {
       if (!this.form) return;
       this.loading = true;
@@ -148,9 +128,7 @@ export default {
         this.loading = false; // 로딩 상태 해제
       }
     },
-    required(v) {
-      return !!v || '내용을 입력해주세요'
-    },
+
     movepage(path) {
       router.push(path);
     },

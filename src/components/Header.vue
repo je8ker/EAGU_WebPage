@@ -1,14 +1,12 @@
 <template>
-  <v-app-bar height="80" app :style="{ backgroundColor: backgroundColor }">
-    <v-row align="center">
-      <v-col :cols="drawer ? 0:1" align="start"></v-col>
-      <v-col align="center" cols="10">
-        <div style="cursor: pointer">
-          <SvgIcon v-if="!drawer" height="64" width="64" @click="movepage('/')"/>
-          <v-app-bar-title v-if="drawer" :style="{ color: titleColor }"><h2>EAGU</h2></v-app-bar-title>
-        </div>
+  <v-app-bar height="68" app :style="{ backgroundColor: backgroundColor }">
+    <v-row style="height: 64px;" no-gutters>
+      <v-col cols="4" align="start"></v-col>
+      <v-col align="center" align-self="center" cols="4">
+        <SvgIcon style="cursor: pointer" v-if="!drawer" height="64" width="64" @click="movepage('/')"/>
+        <v-app-bar-title v-if="drawer" :style="{ color: titleColor }"><h2>EAGU</h2></v-app-bar-title>
       </v-col>
-      <v-col align="end" cols="1">
+      <v-col align="end" cols="4">
         <v-btn size="x-large" color="black" icon="" @click.stop="drawer = !drawer">
           <v-icon>{{ drawer ? 'mdi-close' : 'mdi-menu' }}</v-icon>
         </v-btn>

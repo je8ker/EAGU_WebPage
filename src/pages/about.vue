@@ -20,6 +20,7 @@ import {ref, onMounted, onBeforeUnmount} from 'vue';
 
 const sections = ref([
   /*소개*/
+  {title: ['EAGU'], scale: 1, bgColor: 'black'},
   {title: ['EAGU는 어떤', '동아리인가요?'], scale: 1, bgColor: 'black'},
   {title: ['다양한 프로그래머들이', '모여서 함께 배우고', '성장하는 동아리입니다.'], scale: 1, bgColor: 'black'},
   {title: ['코딩에 열정을 가진 ', '학생들의 커뮤니티로 ', '서로의 지식과 경험을', '공유합니다.'], scale: 1, bgColor: 'black'},
@@ -29,6 +30,7 @@ const sections = ref([
   {title: ['비슷한 관심사를 ', '가진 동료들과의 교류'], scale: 1, bgColor: 'black'},
   {title: ['선배 개발자들로부터의', '조언과 지도'], scale: 1, bgColor: 'black'},
   {title: ['최신 프로그래밍 트렌드 학습 ', '새로운 기술 습득'], scale: 1, bgColor: 'black'},
+  {title: ['Engineers', 'And', 'GeniUs'], scale: 1, bgColor: 'black'},
   /*소개3*/
   // {title: ['주요 활동'], scale: 1, bgColor: 'black'},
   // {title: ['정기적인 코딩 모임'], scale: 1, bgColor: 'black'},

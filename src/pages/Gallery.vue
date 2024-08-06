@@ -1,9 +1,11 @@
 <template>
-  <v-row>
+  <h2 style="padding-top: 10px" class="text-center text-h2 font-weight-black text-green-accent-3
+">갤러리</h2>
+  <v-row class="ma-2">
     <v-col
       v-for="n in 9"
       :key="n"
-      class="d-flex child-flex"
+      class="d-flex justify-space-around"
       cols="4"
     >
       <v-img
@@ -29,3 +31,5 @@
     </v-col>
   </v-row>
 </template>
+<script setup>
+</script>

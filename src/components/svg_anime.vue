@@ -48,19 +48,20 @@ export default {
 
 <style scoped>
 .color1 {
-  stroke: #4FC1F9;
+  stroke: #2196F3
+;
 }
 
 .color2 {
-  stroke: #FFA500;
+  stroke: #FF9800;
 }
 
 .color3 {
-  stroke: #32CD32;
+  stroke: #4CAF50;
 }
 
 .color4 {
-  stroke: #9B59B6;
+  stroke: #F44336;
 }
 
 .logo {
