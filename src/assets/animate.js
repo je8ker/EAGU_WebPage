@@ -9,8 +9,8 @@ export function logoAnimation(element) {
     easing: 'easeInOutCirc',
     duration: 1000,
     delay: anime.stagger(500),
-    direction: 'alternate',
-    loop: true
+    // direction: 'alternate',
+    loop: 1
   });
 }
   // anime({

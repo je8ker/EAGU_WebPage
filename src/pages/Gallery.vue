@@ -11,10 +11,8 @@
       <v-img
         src='@/assets/logo.png'
         aspect-ratio="1"
-        class="bg-grey-lighten-2"
-        cover
+        class="bg-grey-darken-4"
       >
-        작업중
         <template v-slot:placeholder>
           <v-row
             align="center"

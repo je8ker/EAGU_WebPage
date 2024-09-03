@@ -7,49 +7,56 @@
     rounded
   >
     <div>
-      <h2 :class="{
-        'text-h2': !$vuetify.display.smAndDown,
-        'text-h3': $vuetify.display.smAndDown,
-      }"
-          class="font-weight-black text-deep-purple-accent-1">공지사항</h2>
+      <div
+        style="margin-top: 20px"
+        :class="{'text-h3 font-weight-black':$vuetify.display.smAndDown,
+        'text-h2 font-weight-black': !$vuetify.display.smAndDown}"
+        class="color1"
+      >공지사항
+      </div>
       <br>
 
-      <div :class="{
-      'text-h4': !$vuetify.display.smAndDown,
-      'text-h5': $vuetify.display.smAndDown,
-      }"
-           class="font-weight-bold mb-2 text-indigo-accent-4">
-        👨🏻‍💻2024 EAGU 6기 동아리원을 모집합니다👩🏻‍💻<br></div>
+      <div
+        :class="{'text-h5 font-weight-black':$vuetify.display.smAndDown,
+        'text-h4 font-weight-black': !$vuetify.display.smAndDown}"
+        class="font-weight-bold mb-2 color2">
+        EAGU 6기 동아리원을 모집합니다<br></div>
       <br>
       <div
-        :class="{
-      'text-h4': !$vuetify.display.smAndDown,
-      'text-h5': $vuetify.display.smAndDown,
-      }"
-        class="font-weight-bold mb-2 text-cyan-lighten-3">
-        🗂️모집 분야🗂<br>
+        :class="{'text-h5 font-weight-black':$vuetify.display.smAndDown,
+        'text-h4 font-weight-black': !$vuetify.display.smAndDown}"
+        class="font-weight-bold mb-2 color3">
+        모집 분야<br>
       </div>
       <div
-        :class="{
-      'text-h4': !$vuetify.display.smAndDown,
-      'text-h5': $vuetify.display.smAndDown,
-      }"
-        class="font-weight-bold mb-2">
-        프론트엔드, 백엔드, 서버 & 네트워크, 보안, Android, IOS<br>
+        :class="{'text-h6 font-weight-bold':$vuetify.display.smAndDown,
+        'text-h5 font-weight-bold': !$vuetify.display.smAndDown}">
+        프론트엔드, 백엔드, 서버 & 네트워크,<br>
+        보안, Android, iOS<br>
+      </div>
+
+      <div style="margin-bottom: 20px"
+           :class="{'text-h6 font-weight-bold':$vuetify.display.smAndDown,
+        'text-h5 font-weight-bold': !$vuetify.display.smAndDown}">
         <br>
-        🔥 이런 분들에게 추천드려요!🔥<br>
-        컴퓨터 언어는 배웠지만 막상 개발을 어떻게 할지 모르는 분!<br>
-        프로젝트는 하고 싶지만 막상 어떻게 팀원을 모을지 막막한분!<br>
+        <div v-if="$vuetify.display.smAndDown">
+          이런 분들에게 추천드려요!<br>
+          컴퓨터 언어는 배웠지만 <br>
+          개발을 어떻게 할지 모르는 분!<br>
+          프로젝트는 하고 싶지만<br>
+          어떻게 팀원을 모을지 막막한분!
+        </div>
+        <div v-else>
+          이런 분들에게 추천드려요!<br>
+          컴퓨터 언어는 배웠지만 개발을 어떻게 할지 모르는 분!<br>
+          프로젝트는 하고 싶지만 어떻게 팀원을 모을지 막막한분!
+        </div>
         <br>
         자세한 내용은
-        <v-btn
-          :class="{
-      'text-h4': !$vuetify.display.smAndDown,
-      'text-h5': $vuetify.display.smAndDown,
-      }" class="font-weight-bold mb-2 text-red"
-          variant="text"
-          @click="movepage('/join-us')">가입신청
-        </v-btn>
+        <button
+          @click="movepage('/join-us')">
+          가입신청
+        </button>
         을 확인해주세요!
       </div>
     </div>
@@ -74,4 +81,27 @@ export default {
 
 <style scoped>
 
+span {
+  display: inline;
+}
+
+button {
+  color: red;
+}
+
+.color1 {
+  color: #2196F3;
+}
+
+.color2 {
+  color: #FF9800;
+}
+
+.color3 {
+  color: #4CAF50;
+}
+
+.color4 {
+  color: #F44336;
+}
 </style>

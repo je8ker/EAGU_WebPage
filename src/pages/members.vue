@@ -1,6 +1,6 @@
 <template>
-  <h2 style="padding-top: 10px" class="text-center text-h2 font-weight-black text-light-blue
-">회원소개</h2>
+  <h3 class="text-center text-light-blue">
+   회원소개</h3>
   <v-container>
     <v-row>
       <v-col
@@ -32,7 +32,8 @@
             </v-card-subtitle>
           </v-card-item>
           <v-card-text>
-            Tech_Stack stack: {{ user.Tech_Stack }}
+            Tech_Stack: {{ user.Tech_Stack }}<br>
+            Tech_Position: {{ user.Dev_position }}
           </v-card-text>
         </v-card>
       </v-col>
@@ -67,7 +68,8 @@
           </v-card-item>
 
           <v-card-text>
-            Tech_Stack stack: {{ olduser.Tech_Stack }}
+            Tech_Stack: {{ olduser.Tech_Stack }}<br>
+            Tech_Position: {{ olduser.Dev_position }}
           </v-card-text>
         </v-card>
       </v-col>
@@ -84,22 +86,26 @@ export default {
         {name: '강현민', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
         {name: '정동현', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
         {name: '전상현', Positions: '팀원', Tech_Stack: 'Dev ',Dev_position:'Frontend'},
-        {name: '신용범', Positions: '팀원', Tech_Stack: 'Dev &Frontend'},
-        {name: '한성희', Positions: '팀원', Tech_Stack: 'Dev &Frontend'},
-        {name: '채지숙', Positions: '팀원', Tech_Stack: 'Dev & AI'},
-        {name: '임수연', Positions: '팀원', Tech_Stack: 'Dev & AI'},
-        {name: '김민진', Positions: '팀원', Tech_Stack: 'Dev & Backend'},
-        {name: '정서인', Positions: '팀원', Tech_Stack: 'Dev & Backend'}
+        {name: '신용범', Positions: '팀원', Tech_Stack: 'Dev', Dev_position:'Frontend'},
+        {name: '한성희', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
+        {name: '채지숙', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'AI'},
+        {name: '임수연', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'AI'},
+        {name: '김민진', Positions: '팀원', Tech_Stack: 'Dev', Dev_position:'Backend'},
+        {name: '정서인', Positions: '팀원', Tech_Stack: 'Dev', Dev_position:'Backend'}
       ],
       oldusers: [
-        {name: '문주희', Positions: '(전)회장', Tech_Stack: '*'},
-        {name: '정다훈', Positions: '*', Tech_Stack: '*'},
-        {name: '박진기', Positions: '*', Tech_Stack: '*'},
+        {name: '문주희', Positions: '(전)회장', Tech_Stack: 'Null', Dev_position: 'Null'},
+        {name: '정다훈', Positions: 'Null', Tech_Stack: 'Null', Dev_position: 'Null'},
+        {name: '박진기', Positions: 'Null', Tech_Stack: 'Null', Dev_position: 'Null'},
       ],
     };
   },
 };
 </script>
 <style>
-
+h3{
+  font-size: 10vw;
+  margin-top: 10px;
+  font-weight: bold;
+}
 </style>

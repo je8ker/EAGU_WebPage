@@ -4,7 +4,7 @@
       v-for="(section, index) in sections"
       :key="index"
       class="section"
-      :style="{ transform: `scale(${section.scale})`, backgroundColor: section.bgColor }"
+      :style="{ transform: `scale(${section.scale})`, color: section.color, backgroundColor: section.bgColor }"
     >
       <template v-for="(line, lineIndex) in section.title" :key="lineIndex">
         {{ line }}
@@ -30,7 +30,7 @@ const sections = ref([
   {title: ['비슷한 관심사를 ', '가진 동료들과의 교류'], scale: 1, bgColor: 'black'},
   {title: ['선배 개발자들로부터의', '조언과 지도'], scale: 1, bgColor: 'black'},
   {title: ['최신 프로그래밍 트렌드 학습 ', '새로운 기술 습득'], scale: 1, bgColor: 'black'},
-  {title: ['Engineers', 'And', 'GeniUs'], scale: 1, bgColor: 'black'},
+  {title: ['Engineers', 'And', 'GeniUs'], scale: 1 ,bgColor: 'black'},
   /*소개3*/
   // {title: ['주요 활동'], scale: 1, bgColor: 'black'},
   // {title: ['정기적인 코딩 모임'], scale: 1, bgColor: 'black'},
@@ -85,13 +85,7 @@ body {
 }
 
 h1 {
-  font-size: 70px;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 20px;
-  }
+  font-size: 8vw;
 }
 
 .section {
@@ -119,7 +113,21 @@ h1 {
     stroke-dashoffset: 0;
   }
 }
+.color1 {
+  color: #2196F3;
+}
 
+.color2 {
+  color: #FF9800;
+}
+
+.color3 {
+  color: #4CAF50;
+}
+
+.color4 {
+  color: #F44336;
+}
 .block {
   pointer-events: none;
   position: relative;

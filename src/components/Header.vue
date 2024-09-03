@@ -4,7 +4,7 @@
       <v-col cols="4" align="start"></v-col>
       <v-col align="center" align-self="center" cols="4">
         <SvgIcon style="cursor: pointer" v-if="!drawer" height="64" width="64" @click="movepage('/')"/>
-        <v-app-bar-title v-if="drawer" :style="{ color: titleColor }"><h2>EAGU</h2></v-app-bar-title>
+        <v-app-bar-title v-if="drawer" style="cursor: pointer" :style="{ color: titleColor }" @click="closelist()"><h2>EAGU</h2></v-app-bar-title>
       </v-col>
       <v-col align="end" cols="4">
         <v-btn size="x-large" color="black" icon="" @click.stop="drawer = !drawer">
@@ -50,7 +50,7 @@ export default {
         {title: 'Members', path: '/members'},
         {title: 'Join Us', path: '/join-us'},
         {title: 'Gallery', path: '/gallery'},
-        {title: 'Community', path: '/community'},
+        // {title: 'Community', path: '/community'},
         {title: 'Notice', path: '/notice'},
       ],
       initialScrollPosition: 0,
@@ -89,6 +89,10 @@ export default {
     movepage(path) {
       router.push(path);
     },
+    closelist(){
+      this.movepage('/');
+      this.drawer = false;
+    }
   }
 };
 </script>

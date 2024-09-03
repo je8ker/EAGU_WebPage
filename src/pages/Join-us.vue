@@ -22,11 +22,13 @@
         가입비 50,000원<br>
         (후드, 사원증 , 첫달 회비)
       </div>
-      <v-btn class="text-h4 font-weight-black" color="red" prepend-icon="mdi-arrow-right" variant="text" @click="hidesheet = true">신청서작성</v-btn>
+      <v-btn size="auto" class="text-h4 font-weight-black" color="red" prepend-icon="mdi-arrow-right" variant="tonal"
+             @click="hidesheet = true">신청서작성
+      </v-btn>
     </div>
   </v-sheet>
 
-  <v-sheet v-if="hidesheet" height="100%" class="bg-black" rounded>
+  <v-sheet style="margin-bottom: 20px" v-if="hidesheet" height="100%" class="bg-black" rounded>
     <div class="Mainname">
       가입신청
     </div>
@@ -74,8 +76,12 @@
           clearable
         ></v-text-field>
         <v-card-actions>
-          <v-btn @click="hidesheet=false" variant="text">
-            Cancel
+          <v-btn
+            @click="hidesheet=false"
+            variant="elevated"
+            color="red"
+          >
+            취소
           </v-btn>
           <v-spacer></v-spacer>
 
@@ -86,7 +92,7 @@
             type="submit"
             variant="elevated"
           >
-            Submit
+            신청
           </v-btn>
         </v-card-actions>
       </v-form>
@@ -96,10 +102,11 @@
 <script>
 import router from "@/router";
 import axios from "axios";
+
 export default {
   data: () => ({
     form: false,
-    inquiries:[],
+    inquiries: [],
     name: null,
     email: null,
     major: null,
@@ -119,7 +126,7 @@ export default {
       this.loading = true;
 
       try {
-        const response = await axios.post('http://localhost:3000/api/join_us', {  // API 경로 수정
+        const response = await axios.post('/api/join_us', {  // API 경로 수정
           name: this.name,
           email: this.email,
           major: this.major,
@@ -137,7 +144,7 @@ export default {
           this.student_id_number = '',
           this.phone_number = '',
 
-        alert("가입신청이 완료되었습니다.");
+          alert("가입신청이 완료되었습니다.");
         console.log("데이터 다시 불러오기 성공");
       } catch (error) {
         alert('가입신청 중 오류가 발생했습니다.');
@@ -169,7 +176,7 @@ export default {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bolder;
   justify-content: center;
 }
