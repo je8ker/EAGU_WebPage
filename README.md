@@ -7,7 +7,7 @@
 
 # University Programing Club
 
-www.eagu.kro.kr
+https://www.eagu.kro.kr/
 
 
 
