@@ -81,7 +81,7 @@ export default {
   data() {
     return {
       users: [
-        {name: '이종원', Positions: '회장', Tech_Stack: 'PM', Dev_position: 'Full stack'},
+        {name: '이종원', Positions: '2대 회장', Tech_Stack: 'PM', Dev_position: 'Full stack'},
         {name: '정수민', Positions: '부회장', Tech_Stack: 'PL',Dev_position: 'Full stack'},
         {name: '강현민', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
         {name: '정동현', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
@@ -94,7 +94,7 @@ export default {
         {name: '정서인', Positions: '팀원', Tech_Stack: 'Dev', Dev_position:'Backend'}
       ],
       oldusers: [
-        {name: '문주희', Positions: '(전)회장', Tech_Stack: 'Null', Dev_position: 'Null'},
+        {name: '문주희', Positions: '1대 회장', Tech_Stack: 'Null', Dev_position: 'Null'},
         {name: '정다훈', Positions: 'Null', Tech_Stack: 'Null', Dev_position: 'Null'},
         {name: '박진기', Positions: 'Null', Tech_Stack: 'Null', Dev_position: 'Null'},
       ],

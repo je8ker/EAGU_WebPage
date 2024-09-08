@@ -20,7 +20,7 @@
         매달 1일 10,000원 납부<br>
         3달 미납 시 퇴출<br>
         가입비 50,000원<br>
-        (후드, 사원증 , 첫달 회비)
+        (후드, 사원증, 첫달 회비)
       </div>
       <v-btn size="auto" class="text-h4 font-weight-black" color="red" prepend-icon="mdi-arrow-right" variant="tonal"
              @click="hidesheet = true">신청서작성
