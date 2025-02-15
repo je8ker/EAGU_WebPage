@@ -7,11 +7,11 @@
         v-for="user in users"
         :key="user.title"
         class="d-flex child-flex"
-        cols="6"
+        cols="3"
       >
         <v-card
           class="mx-auto"
-          width="434"
+          width="300"
           variant="plain"
           hover
         >
@@ -41,11 +41,11 @@
         v-for="olduser in oldusers"
         :key="olduser.title"
         class="d-flex child-flex"
-        cols="6"
+        cols="3"
       >
         <v-card
           class="mx-auto"
-          width="434"
+          width="300"
           variant="plain"
           hover
         >
@@ -83,10 +83,6 @@ export default {
       users: [
         {name: '이종원', Positions: '2대 회장', Tech_Stack: 'PM', Dev_position: 'Full stack'},
         {name: '정수민', Positions: '부회장', Tech_Stack: 'PL',Dev_position: 'Full stack'},
-        {name: '강현민', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
-        {name: '정동현', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
-        {name: '전상현', Positions: '팀원', Tech_Stack: 'Dev ',Dev_position:'Frontend'},
-        {name: '신용범', Positions: '팀원', Tech_Stack: 'Dev', Dev_position:'Frontend'},
         {name: '한성희', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'Frontend'},
         {name: '채지숙', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'AI'},
         {name: '임수연', Positions: '팀원', Tech_Stack: 'Dev',Dev_position:'AI'},
@@ -104,7 +100,7 @@ export default {
 </script>
 <style>
 h3{
-  font-size: 10vw;
+  font-size: 5vw;
   margin-top: 10px;
   font-weight: bold;
 }

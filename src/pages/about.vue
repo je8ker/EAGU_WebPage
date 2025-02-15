@@ -85,7 +85,7 @@ body {
 }
 
 h1 {
-  font-size: 8vw;
+  font-size: 4vw;
 }
 
 .section {
