@@ -1,22 +1,17 @@
 <template>
   <v-app-bar height="68" app :style="{ backgroundColor: backgroundColor }">
-    <v-row style="height: 64px;" no-gutters>
-      <v-col cols="4" align="start"></v-col>
-      <v-col align="center" align-self="center" cols="4">
-        <SvgIcon style="cursor: pointer" v-if="!drawer" height="64" width="64" @click="movepage('/')"/>
-        <v-app-bar-title v-if="drawer" style="cursor: pointer" :style="{ color: titleColor }" @click="closelist()"><h2>EAGU</h2></v-app-bar-title>
-      </v-col>
-      <v-col align="end" cols="4">
-        <v-btn size="x-large" color="black" icon="" @click.stop="drawer = !drawer">
-          <v-icon>{{ drawer ? 'mdi-close' : 'mdi-menu' }}</v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
+    <svg-icon class="svgicon" height="64" width="64" @click="movepage('/')"/>
+    <v-app-bar-title style="color: black">EAGU</v-app-bar-title>
+      <v-btn text v-for="item in items" :key="item.title" style="color: black" @click="movepage(item.path)">
+        {{ item.title }}
+      </v-btn>
+<!--      <v-btn size="x-large" color="black" icon="" @click.stop="drawer = !drawer">-->
+<!--        <v-icon>{{ drawer ? 'mdi-close' : 'mdi-menu' }}</v-icon>-->
+<!--      </v-btn>-->
   </v-app-bar>
   <v-navigation-drawer
     v-model="drawer"
-    location="top"
-    class="w-100 h-100"
+    location="right"
     temporary
   >
     <v-list>
@@ -89,7 +84,7 @@ export default {
     movepage(path) {
       router.push(path);
     },
-    closelist(){
+    closelist() {
       this.movepage('/');
       this.drawer = false;
     }
@@ -98,9 +93,8 @@ export default {
 </script>
 
 <style>
-
-.v-navigation-drawer {
-  z-index: 1100;
-  top: 0;
+.svgicon {
+  cursor: pointer;
+  padding-left: 10px;
 }
 </style>
