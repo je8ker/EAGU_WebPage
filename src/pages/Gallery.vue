@@ -1,6 +1,9 @@
 <template>
-  <h2 style="padding-top: 10px" class="text-center text-h2 font-weight-black text-green-accent-3
-">갤러리</h2>
+  <v-img src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
+    <div class="d-flex align-center justify-center fill-height">
+      <h1 class="white--text">갤러리</h1>
+    </div>
+  </v-img>
   <v-row class="ma-2">
     <v-col
       v-for="n in 9"

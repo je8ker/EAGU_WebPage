@@ -4,24 +4,81 @@ const app = express()
 const pool = require('./db');
 const path = require('path');
 const PORT = process.env.PORT;
-const cors = require('cors');
+// const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+// const saltRounds = 10;
+// const myPlaintextPassword = 's0/\/\P4$$w0rD';
+// const  someOtherPlaintextPassword  =  'not_bacon' ;
 
+const cookieParser = require('cookie-parser');
 
-app.use(cors());
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true}));
+app.use(cookieParser());
 
-// app.use((req, res, next) => {
-//   res.setHeader('Content-Type', 'application/json');
-//   next();
-// });
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+//쿠키 검증
+app.get('/api/auth-check', (req, res) => {
+  const token = req.cookies.authToken;
+  // console.log("클라이언트토큰값:",token);
+  if (!token) {
+    return res.status(401).send({success: false, message: '인증 토큰이 없음'});
+  }
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({success: false, message: "토큰 유효하지 않음"});
+    }
+    res.json({success: true, user: decoded})
+  })
+})
+//회원가입
+// app.post('/api/register', async (req, res) => {
+//   const {userId, password} = req.body;
+//   try {
+//     const hashPW = bcrypt.hash(password, 10);
+//     await pool.query("INSERT INTO user(id,pw) VALUES (?,?)", [userId, hashPW]);
+//     res.json({register: true, message: "User registered successfully."});
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({success: false, message: "Registration failed."});
+//   }
+// })
 
+//관리자 로그인
+app.post('/api/login', async (req, res) => {
+  const {userId, userPw} = req.body;
+  try {
+    const [rows] = await pool.query("SELECT * FROM user WHERE id = ?", [userId]);
+    if (rows.length === 0) {
+      return res.status(401).json({message: 'Invalid credentials', success: false});
+    }
+    const user = rows;
+    const validPw = await bcrypt.compare(userPw, user.pw);
+    if (!validPw) {
+      return res.status(401).json({message: 'Invalid credentials', success: false});
+    } else {
+      const token = jwt.sign({id: user.id, role: user.role}, process.env.JWT_SECRET, {expiresIn: '1h'});
+      res.cookie('authToken', token, {
+        httpOnly: false, //test==false
+        secure: process.env.NODE_ENV === 'production', sameSite: 'strict', maxAge: 60 * 60 * 1000,
+      });
+      res.json({message: "Login successfully.", success: validPw, username: user.id});
+      console.log("로그인검증(bcrypt):", validPw)
+      console.log("token:", token);
+      console.log("user:", user);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({message: 'Internal server error', success: false});
+  }
+})
 
+//로그아웃
+app.post('/api/logout', (req, res) => {
+  res.clearCookie('authToken', {
+    httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'strict',
+  });
+  res.json({message: "로그아웃 완료"})
+})
 
 // 게시물 생성 API
 app.post('/api/content', async (req, res) => {
@@ -51,9 +108,18 @@ app.get('/api/content', async (req, res) => {
   }
 });
 
+app.get('/api/join-us', async (req, res) => {
+  try {
+    const rows = await pool.query('SELECT * FROM Join_us');
+    res.json(rows);
+    console.log("가입리스트 불러오기 성공")
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    res.status(500).json({error: 'Internal server error'});
+  }
+})
 
-
-app.post('/api/join_us', async (req, res) => {
+app.post('/api/join-us', async (req, res) => {
   const {name, email, major, student_id_number, phone_number} = req.body;
 
   try {
@@ -68,8 +134,6 @@ app.post('/api/join_us', async (req, res) => {
     res.sendStatus(500);
   }
 });
-
-
 
 //불러오는 웹페이지는 항상 아래에
 app.use(express.static(path.join(__dirname, '../dist')));

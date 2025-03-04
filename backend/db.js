@@ -14,7 +14,7 @@ const pool = mariadb.createPool({
 
 pool.getConnection()
   .then(conn => {
-    console.log('MariaDB 연결 성공!');
+    console.log('DB 연결 성공!');
 
     return conn.query('SELECT * FROM community')
       .catch(err => {
@@ -23,7 +23,7 @@ pool.getConnection()
       });
   })
   .catch(err => {
-    console.error('MariaDB 연결 실패:', err);
+    console.error('DB 연결 실패:', err);
   });
 
 

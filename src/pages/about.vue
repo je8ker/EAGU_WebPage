@@ -1,10 +1,11 @@
 <template>
   <div class="container" :style="{ backgroundColor: containerBgColor }">
     <h1
+
       v-for="(section, index) in sections"
       :key="index"
       class="section"
-      :style="{ transform: `scale(${section.scale})`, color: section.color, backgroundColor: section.bgColor }"
+      :style="{ transform: `scale(${section.scale})`, color: section.color, backgroundColor: section.bgColor, fontSize: computedFontSzie }"
     >
       <template v-for="(line, lineIndex) in section.title" :key="lineIndex">
         {{ line }}
@@ -16,29 +17,26 @@
 
 
 <script setup>
-import {ref, onMounted, onBeforeUnmount} from 'vue';
+import {ref, onMounted, onBeforeUnmount, computed} from 'vue';
+import {useDisplay} from "vuetify";
 
+const {xs, sm, md, lg, xl} = useDisplay();
+//화면 넓이에 따라 폰트 사이즈 변경
+const computedFontSzie = computed(() => {
+  if (xs.value) return '8vw';
+  if (sm.value) return '7vw';
+  if (md.value) return '6vw';
+  if (lg.value) return '5vw';
+  if (xl.value) return '4vw';
+  return '3vw';
+})
 const sections = ref([
   /*소개*/
-  {title: ['EAGU'], scale: 1, bgColor: 'black'},
-  {title: ['EAGU는 어떤', '동아리인가요?'], scale: 1, bgColor: 'black'},
-  {title: ['다양한 프로그래머들이', '모여서 함께 배우고', '성장하는 동아리입니다.'], scale: 1, bgColor: 'black'},
-  {title: ['코딩에 열정을 가진 ', '학생들의 커뮤니티로 ', '서로의 지식과 경험을', '공유합니다.'], scale: 1, bgColor: 'black'},
-  {title: ['실제 프로젝트 개발과 ', '최신 기술 학습을 통해 ', '실력을 향상시키는 것을', '목표로 합니다.'], scale: 1, bgColor: 'black'},
-  /*소개2*/
-  {title: ['실제 프로젝트 참여를', '통한 실전 능력 향상'], scale: 1, bgColor: 'black'},
-  {title: ['비슷한 관심사를 ', '가진 동료들과의 교류'], scale: 1, bgColor: 'black'},
-  {title: ['선배 개발자들로부터의', '조언과 지도'], scale: 1, bgColor: 'black'},
-  {title: ['최신 프로그래밍 트렌드 학습 ', '새로운 기술 습득'], scale: 1, bgColor: 'black'},
-  {title: ['Engineers', 'And', 'GeniUs'], scale: 1 ,bgColor: 'black'},
-  /*소개3*/
-  // {title: ['주요 활동'], scale: 1, bgColor: 'black'},
-  // {title: ['정기적인 코딩 모임'], scale: 1, bgColor: 'black'},
-  // {title: ['해커톤 참가'], scale: 1, bgColor: 'black'},
-  // {title: ['프로젝트 진행'], scale: 1, bgColor: 'black'},
-  // {title: ['기술 블로그 운영'], scale: 1, bgColor: 'black'},
+  {title: ['EAGU는', '어떤 동아리인가요?'], scale: 1, bgColor: 'black'},
+  {title: ['아이디어를 코드로', '미래를 디자인합니다.'], scale: 1, bgColor: 'black'},
+  {title: ['최신 기술 습득과 ', '지식 공유를 통해', '혁신적인 프로젝트를', '만들어가며'], scale: 1, bgColor: 'black'},
+  {title: ['세상의 문제를', '함께 해결해 나가는', '개발자들의 모임입니다.'], scale: 1, bgColor: 'black'},
 ]);
-
 
 
 const containerBgColor = ref('black'); // 초기 배경 색상 설정
@@ -84,10 +82,6 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-size: 4vw;
-}
-
 .section {
   height: 100vh;
   display: flex;
@@ -95,7 +89,7 @@ h1 {
   align-items: center;
   justify-content: center;
   transition: transform 0.1s ease-out;
-  text-align: center;
+  text-align: left;
   padding: 0 20px;
 }
 
@@ -113,6 +107,7 @@ h1 {
     stroke-dashoffset: 0;
   }
 }
+
 .color1 {
   color: #2196F3;
 }
@@ -128,6 +123,7 @@ h1 {
 .color4 {
   color: #F44336;
 }
+
 .block {
   pointer-events: none;
   position: relative;

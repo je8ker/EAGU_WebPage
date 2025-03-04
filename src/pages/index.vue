@@ -1,7 +1,7 @@
 <template>
-<svg_anime/>
+    <svg_anime/>
 </template>
 
 <script setup>
-  import Svg_anime from "@/components/svg_anime.vue";
+import Svg_anime from "@/components/svg_anime.vue";
 </script>

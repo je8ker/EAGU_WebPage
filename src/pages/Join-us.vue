@@ -1,38 +1,37 @@
 <template>
-  <v-sheet
-    v-if="!hidesheet"
-    class="d-flex bg-black align-center justify-center flex-wrap text-center mx-auto px-4"
-    elevation="4"
-    height="100%"
-    width="100%"
-    rounded
-  >
-    <div>
-      <h2 class="text-h4 font-weight-black text-blue">안녕하세요<br>EAGU입니다</h2>
+  <v-img src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
+    <div class="d-flex align-center justify-center fill-height">
+      <h1 class="white--text">가입신청</h1>
+    </div>
+  </v-img>
+  <div v-if="!hidesheet" class="d-flex justify-center align-center">
+    <div data-aos="fade-up" data-aos-duration="1000">
       <br>
-      <h2 class="text-h4 font-weight-black text-orange">모임</h2>
-      <div class="text-h5 font-weight-medium mb-2">
-        동아리모임은 월,화 평일 오후 18:30- 22:00에 정기모임을 합니다.
-      </div>
-      <br>
-      <h2 class="text-h4 font-weight-black text-green">회비</h2>
-      <div class="text-h5 font-weight-medium mb-2">
-        매달 1일 10,000원 납부<br>
-        3달 미납 시 퇴출<br>
-        가입비 50,000원<br>
-        (후드, 사원증, 첫달 회비)
+      <div
+        :class="{
+      'text-h4': !$vuetify.display.smAndDown,
+      'text-h5': $vuetify.display.smAndDown,
+      }"
+        class="font-weight-bold mb-2">
+        <div>
+          <p>2025년도 신규모집 일정</p>
+          <v-divider class="border-opacity-50" color="white"/>
+          <p><br/>신청기간</p>
+          <p>2월24일(월)~3월7일(금)</p>
+          <p><br/>면접</p>
+          <p>3월11일(월)~3월12일(화)</p>
+          <p></p>
+        </div>
+        <br><br>
       </div>
       <v-btn size="auto" class="text-h4 font-weight-black" color="red" prepend-icon="mdi-arrow-right" variant="tonal"
-             @click="hidesheet = true">신청서작성
+             @click="hidesheet = true">지원하기
       </v-btn>
     </div>
-  </v-sheet>
-
-  <v-sheet style="margin-bottom: 20px" v-if="hidesheet" height="100%" class="bg-black" rounded>
-    <div class="Mainname">
-      가입신청
-    </div>
+  </div>
+  <div v-if="hidesheet" class="marginside">
     <v-card
+      style="margin-top: 30px"
       class="mx-auto px-5 py-5"
       max-width="50vh"
       max-height="100vh">
@@ -104,7 +103,7 @@
         </v-card-actions>
       </v-form>
     </v-card>
-  </v-sheet>
+  </div>
 </template>
 <script>
 import router from "@/router";
@@ -157,7 +156,7 @@ export default {
         this.loading = true;
 
         try {
-          const response = await axios.post('/api/join_us', {  // API 경로 수정
+          const response = await axios.post('/api/join-us', {  // API 경로 수정
             name: this.name,
             email: this.email,
             major: this.major,
@@ -203,14 +202,9 @@ export default {
 }
 </script>
 
-<style scoped>
-.Mainname {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bolder;
-  justify-content: center;
+<style>
+.marginside {
+  margin-left: 5%;
+  margin-right: 5%;
 }
-
 </style>
