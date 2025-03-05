@@ -5,7 +5,7 @@
 
 
 
-# University Programing Club
+# Daejeon University Programing Club
 
 www.eagu.kro.kr
 
