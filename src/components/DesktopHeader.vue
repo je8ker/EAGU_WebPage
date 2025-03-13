@@ -1,14 +1,20 @@
 <template>
   <v-app-bar height="68" app :style="{ backgroundColor: backgroundColor }">
-    <svg-icon class="svgicon" height="64" width="64" @click="movepage('/')"/>
-    <v-app-bar-title style="color: black">EAGU</v-app-bar-title>
-      <v-btn text v-for="item in items" :key="item.title" style="color: black" @click="movepage(item.path)">
+    <div class="d-flex justify-end align-center cursor-pointer" @click="movepage('/')">
+      <svg-icon class="svgicon" height="50" width="50">EAGU</svg-icon>
+      <div class="d-flex flex-column pa-2">
+        <p class="text-start headertitle">EAGU</p>
+        <p class="headersuptitle">Daejeon University Programing Club</p>
+      </div>
+    </div>
+<!--    <v-app-bar-title/>-->
+    <div class="d-flex justify-end align-center">
+      <v-btn v-for="item in items" :key="item.title" style="color: black" @click="movepage(item.path)">
         {{ item.title }}
       </v-btn>
-<!--      <v-btn size="x-large" color="black" icon="" @click.stop="drawer = !drawer">-->
-<!--        <v-icon>{{ drawer ? 'mdi-close' : 'mdi-menu' }}</v-icon>-->
-<!--      </v-btn>-->
+    </div>
   </v-app-bar>
+
   <v-navigation-drawer
     v-model="drawer"
     location="right"
@@ -41,12 +47,13 @@ export default {
       items: [
         {title: 'About', path: '/about'},
         {title: 'Activities', path: '/activities'},
-        {title: 'Benefits', path: '/benefits'},
+        // {title: 'Benefits', path: '/benefits'},
         {title: 'Members', path: '/members'},
-        {title: 'Join Us', path: '/join-us'},
+        // {title: 'Join Us', path: '/join-us'},
         {title: 'Gallery', path: '/gallery'},
         // {title: 'Community', path: '/community'},
         {title: 'Notice', path: '/notice'},
+        // {title: 'admin', path: '/admin/login'},
       ],
       initialScrollPosition: 0,
       scrollThreshold: 500, // 스크롤 임계값 (SVG 색상이 변경되는 지점)
@@ -94,7 +101,17 @@ export default {
 
 <style>
 .svgicon {
-  cursor: pointer;
   padding-left: 10px;
 }
+
+.headertitle {
+  font-size: 20px;
+  color: black;
+}
+
+.headersuptitle {
+  font-size: 10px;
+  color: black;
+}
 </style>
+

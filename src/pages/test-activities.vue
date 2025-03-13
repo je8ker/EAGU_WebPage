@@ -1,5 +1,5 @@
 <template>
-  <v-img src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
+  <v-img max-height="200" cover src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
     <div class="d-flex align-center justify-center fill-height">
       <h1 class="white--text">활동내역</h1>
     </div>

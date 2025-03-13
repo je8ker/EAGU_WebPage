@@ -1,7 +1,8 @@
 <template>
-  <v-img src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
-    <div class="d-flex align-center justify-center fill-height">
-      <h1 class="white--text">조직도</h1>
+  <v-img max-height="200" cover src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
+    <div class="d-flex flex-column align-center justify-center fill-height">
+      <h1 class="text-white">조직도</h1>
+      <p class="text-white">EAGU의 회원들을 소개합니다.</p>
     </div>
   </v-img>
   <v-container data-aos="fade-up" data-aos-duration="1000">
