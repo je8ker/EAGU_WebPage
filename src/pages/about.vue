@@ -6,7 +6,7 @@
     </div>
   </v-img>
   <v-main>
-    <div class="d-flex justify-center align-center">
+    <div class="d-flex justify-center align-center mx-4">
       <div data-aos="fade-up" data-aos-duration="1000">
         <div class="text-center font-weight-bold fs30 my30">인사말</div>
         <div class="text-center font-weight-bold font-italic fs30">

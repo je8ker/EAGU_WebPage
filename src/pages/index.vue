@@ -20,7 +20,7 @@ onMounted(() => {
     showSvg.value = false;
     setTimeout(() => {
       showText.value = true;
-    }, 1000);
+    }, 700);
   }, 3000);
 });
 </script>
@@ -28,7 +28,7 @@ onMounted(() => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
