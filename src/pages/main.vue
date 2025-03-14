@@ -198,10 +198,7 @@ const tab = ref(null)
 
 <style scoped>
 .section-container {
-  height: 100vh;
   width: 100vw;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
   margin: 0 auto;
 }
 

@@ -7,6 +7,7 @@
   </Transition>
 </template>
 
+
 <script setup>
 import {ref, onMounted} from "vue";
 import Svg_anime from "@/components/svg_anime.vue";
