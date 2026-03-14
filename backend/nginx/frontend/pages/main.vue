@@ -36,28 +36,28 @@
             </div>
             <p class="text-center text-h6">
               2022년도에 만들어진 EAGU는 프로그래밍에 관심이 있는 사람들이 모여서 만들어진 동아리에요<br/>
-              SOMA, SSAFY, 공모전, 대회, 대학원, 포트폴리오라는 목표를 위해 창설되었어요!
+              SOMA, SSAPY, 공모전, 대회, 대학원, 포트폴리오라는 목표를 위해 창설되었어요!
             </p>
           </div>
           <v-row class="mt-4" align="center" justify="center">
             <v-col cols="12" md="6">
               <v-row class="flex-column">
                 <v-col class="d-flex align-center justify-start">
-                  <v-icon color="info" icon="mdi-account-multiple"></v-icon>
+                  <v-icon color="black" icon="mdi-account-multiple"></v-icon>
                   <h2 class="ml-2">다양한 구성원</h2>
                 </v-col>
               </v-row>
               <p>다양한 전공의 학생들이 모여 서로의 지식을 공유합니다.</p>
               <v-row class="flex-column mt-4">
                 <v-col class="d-flex align-center justify-start">
-                  <v-icon color="info" icon="mdi-calendar-blank"></v-icon>
+                  <v-icon color="black" icon="mdi-calendar-blank"></v-icon>
                   <h2 class="ml-2">정기 모임</h2>
                 </v-col>
               </v-row>
               <p>매주 월요일과 화요일에 정기 모임을 통해 스터디와 프로젝트를 진행합니다.</p>
               <v-row class="flex-column mt-4">
                 <v-col class="d-flex align-center justify-start">
-                  <v-icon color="info" icon="mdi-book-open-blank-variant-outline"></v-icon>
+                  <v-icon color="black" icon="mdi-book-open-blank-variant-outline"></v-icon>
                   <h2 class="ml-2">학습 자료</h2>
                 </v-col>
               </v-row>
@@ -138,49 +138,31 @@
           <div class="text-center font-weight-bold text-lg-h2 text-md-h3 text-sm-h3 text-h4 mb-4">우리의 프로젝트</div>
           <p class="text-center text-h6">EAGU 회원들이 함께 개발한 다양한 프로젝트를 소개합니다.</p>
           <v-card>
-            <v-tabs
-              v-model="tab"
-              align-tabs="center"
-              color="black"
-            >
-              <v-tab :value="1">웹개발</v-tab>
-              <v-tab :value="2">앱개발</v-tab>
-            </v-tabs>
-
-            <v-tabs-window v-model="tab">
-              <v-tabs-window-item
-                v-for="n in 2"
-                :key="n"
-                :value="n"
-              >
                 <v-container fluid>
                   <v-row>
                     <v-col
-                      v-for="i in 3"
-                      :key="i"
+                      v-for="item in project"
+                      :key="item.name"
                       cols="12"
                       sm="6"
                       md="4"
                     >
                       <v-card
-                        variant="plain"
                         hover>
                         <v-img
                           class="hover-zoom"
-                          :lazy-src="`https://picsum.photos/10/6?image=${i * n * 5 + 10}`"
-                          :src="`https://picsum.photos/500/300?image=${i * n * 5 + 10}`"
+                          src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg"
+                          height="200"
                           gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                           cover
                         >
                         </v-img>
-                        <v-card-title>프로젝트이름</v-card-title>
-                        <v-card-subtitle>프로젝트설명</v-card-subtitle>
+                        <v-card-title>{{ item.name }}</v-card-title>
+                        <v-card-subtitle>{{ item.contents }}</v-card-subtitle>
                       </v-card>
                     </v-col>
                   </v-row>
                 </v-container>
-              </v-tabs-window-item>
-            </v-tabs-window>
           </v-card>
         </v-col>
       </v-row>
@@ -189,10 +171,11 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
 
-const tab = ref(null)
-// const title =ref(null)
+const project = [
+  {name: 'UNIBUS', contents: '셔틀버스 실시간 위치 알림 서비스'},
+  {name: 'UNIMAZE', contents: '학교 전체 건물 3D 지도'},
+]
 
 </script>
 
