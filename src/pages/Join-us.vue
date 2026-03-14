@@ -1,5 +1,5 @@
 <template>
-  <v-img src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
+  <v-img max-height="200" cover src="https://www.dju.ac.kr/images/template/00001/layout/S_visual.jpg">
     <div class="d-flex align-center justify-center fill-height">
       <h1 class="white--text">가입신청</h1>
     </div>
@@ -106,19 +106,19 @@
   </div>
 </template>
 <script>
-import router from "@/router";
 import axios from "axios";
 
 export default {
   data: () => ({
     form: false,
     inquiries: [],
-    name: null,
-    email: null,
-    major: null,
-    student_id_number: null,
-    phone_number: null,
+    name: '',
+    email: '',
+    major: '',
+    student_id_number: '',
+    phone_number: '',
     loading: false,
+    path:'/join-us',
     formHasErrors: false,
     reveal: false,
     hidesheet: false,
@@ -155,8 +155,9 @@ export default {
         if (!this.form) return;
         this.loading = true;
 
+        // API 경로 수정
         try {
-          const response = await axios.post('/api/join-us', {  // API 경로 수정
+          const response = await axios.post('/api/join-us', {
             name: this.name,
             email: this.email,
             major: this.major,
@@ -168,11 +169,11 @@ export default {
           this.inquiries.push(response.data);
 
           // 전송 후 입력 필드 초기화
-          this.name = '',
-            this.email = '',
-            this.major = '',
-            this.student_id_number = '',
-            this.phone_number = '',
+          this.name = null,
+            this.email = null,
+            this.major = null,
+            this.student_id_number = null,
+            this.phone_number = null,
 
             alert("가입신청이 완료되었습니다.");
           console.log("데이터 다시 불러오기 성공");
@@ -191,12 +192,9 @@ export default {
           }
         } finally {
           this.loading = false; // 로딩 상태 해제
+          this.hidesheet = false;
         }
       }
-    },
-
-    movepage(path) {
-      router.push(path);
     },
   },
 }

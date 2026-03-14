@@ -4,17 +4,9 @@
 
 <template>
   <v-footer
-    class="black text-center d-flex flex-column"
-  >
-    <div class="pt-0">
-      Daejeon University Programing Club
-    </div>
-
-    <v-divider></v-divider>
-
-    <div>
-      {{ new Date().getFullYear() }} — <strong>EAGU</strong>
-    </div>
+    class="d-flex flex-column align-center justify-center text-center bg-black">
+    <p>대전광역시 동구 대학로 62, 대전대학교 에듀파크 308호</p>
+    <p>Copyright {{ new Date().getFullYear() }} &copy; <strong>EAGU</strong> All Rights Reserved.</p>
   </v-footer>
 </template>
 <script>

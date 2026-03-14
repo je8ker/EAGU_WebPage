@@ -5,19 +5,26 @@
  */
 
 // Plugins
-import { registerPlugins } from '@/plugins'
+import {registerPlugins} from '@/plugins'
 // Components
 import App from './App.vue'
 
 // Composables
-import { createApp } from 'vue'
+import {createApp} from 'vue'
+import {createPinia} from "pinia"
+import axios from 'axios';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import router from "@/router";
+import {createMetaManager} from "vue-meta";
 
+const pinia = createPinia()
 const app = createApp(App)
-registerPlugins(app)
 
-app.use(router)
-app.mount('#app')
-
-
-
+registerPlugins(app);
+app.provide('$axios',axios);
+app.use(router);
+app.use(AOS);
+app.use(pinia);
+app.use(createMetaManager());
+app.mount('#app');
